@@ -1,5 +1,4 @@
 # Mutantes-UTN-Prog3
-# Mutant Detector
 
 Este proyecto es una aplicación de Spring Boot que detecta si una secuencia de ADN pertenece a un mutante. La lógica de detección se basa en la búsqueda de secuencias repetitivas de bases nitrogenadas (A, T, C, G) en las filas, columnas y diagonales de una matriz NxN.  
 
