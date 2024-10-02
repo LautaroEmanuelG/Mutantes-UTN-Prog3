@@ -9,8 +9,12 @@ public class MutantApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MutantApplication.class, args);
+	}
 
-		//Array vacio
+}
+
+/*
+//Array vacio Pruebas Unitarias en Main, fueron movidas a Test
 		try {
 			String[] arrayVacio = {};
 			MutantDetector.isMutant(arrayVacio);
@@ -134,7 +138,4 @@ public class MutantApplication {
 		} catch (Exception e) {
 			System.out.println("Error en la prueba 7: " + e.getMessage());
 		}
-
-	}
-
-}
+ */
