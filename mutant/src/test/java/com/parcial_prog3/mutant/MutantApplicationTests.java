@@ -1,10 +1,44 @@
 package com.parcial_prog3.mutant;
 
+import com.parcial_prog3.mutant.services.DnaService;
 import com.parcial_prog3.mutant.services.MutantDetector;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@SpringBootTest
+@AutoConfigureMockMvc
 class MutantApplicationTests {
+	@Autowired
+	private MockMvc mockMvc;
+
+	@Autowired
+	private DnaService dnaService;
+
+	@Test
+	void testMutant() throws Exception {
+		String[] dna = {"AAAA", "CCCC", "TCAG", "GGTC"};
+		mockMvc.perform(post("/mutant/")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content("{\"dna\":[\"AAAA\",\"CCCC\",\"TCAG\",\"GGTC\"]}"))
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	void testNotMutant() throws Exception {
+		String[] dna = {"TGAC", "ATCC", "TAAG", "GGTC"};
+		mockMvc.perform(post("/mutant/")
+						.contentType(MediaType.APPLICATION_JSON)
+						.content("{\"dna\":[\"TGAC\",\"ATCC\",\"TAAG\",\"GGTC\"]}"))
+				.andExpect(status().isForbidden());
+	}
 
 	@Test
 	void testArrayVacio() {
