@@ -1,6 +1,6 @@
 # 🧬 Mutantes-UTN-Prog3
 
-Este proyecto es una aplicación de Spring Boot que detecta si una secuencia de ADN pertenece a un mutante. La lógica de detección se basa en la búsqueda de secuencias repetitivas de bases nitrogenadas (A, T, C, G) en las filas, columnas y diagonales de una matriz NxN.  
+Este proyecto es una aplicación de Spring Boot que detecta si una secuencia de ADN pertenece a un mutante. La lógica de detección se basa en la búsqueda de secuencias repetitivas de bases nitrogenadas (A, T, C, G) en las filas, columnas y diagonales de una matriz NxN.
 
 ## 📂 Estructura del Proyecto
 
@@ -10,11 +10,11 @@ Este proyecto es una aplicación de Spring Boot que detecta si una secuencia de 
 
 ## 🧠 Lógica de Detección
 
-La clase `MutantDetector` verifica si una secuencia de ADN es mutante buscando secuencias de 4 bases nitrogenadas iguales en las filas, columnas y diagonales de la matriz de ADN. Si se encuentran más de una de estas secuencias, se considera que el ADN es mutante.  
+La clase `MutantDetector` verifica si una secuencia de ADN es mutante buscando secuencias de 4 bases nitrogenadas iguales en las filas, columnas y diagonales de la matriz de ADN. Si se encuentran más de una de estas secuencias, se considera que el ADN es mutante.
 
 ### ⚠️ Validaciones
 
-Antes de realizar la detección, se realizan varias validaciones en la entrada:  
+Antes de realizar la detección, se realizan varias validaciones en la entrada:
 
 - El array de ADN no puede ser `null`.
 - El array de ADN no puede estar vacío.
@@ -22,32 +22,52 @@ Antes de realizar la detección, se realizan varias validaciones en la entrada:
 - El array de ADN debe ser NxN.
 - Cada fila del array de ADN solo puede contener los caracteres 'A', 'T', 'C', 'G'.
 
+La persistencia asegura que las secuencias de ADN enviadas a la API se almacenen y se puedan consultar posteriormente.
+
+## 📜 Documentación con Swagger
+
+La API está documentada utilizando Swagger. Puedes acceder a la documentación y probar los endpoints desde la siguiente URL:
+
+- **Swagger UI**: [https://mutantes-utn-prog3.onrender.com/swagger-ui.html](https://mutantes-utn-prog3.onrender.com/swagger-ui.html)
+
+## 🌐 API en Render
+
+La aplicación está desplegada en Render. Puedes agregar y quitar secuencias de ADN de mutantes a través de la API en el siguiente enlace:
+
+- **Link de la API**: [https://mutantes-utn-prog3.onrender.com](https://mutantes-utn-prog3.onrender.com)
+
+## 💾 Persistencia en H2
+
+El proyecto utiliza una base de datos H2 para persistir las secuencias de ADN. La base de datos está configurada en modo local y se guarda dentro del proyecto en la siguiente ruta:
+
+- **Ruta de la base de datos**: `mutant/data/mutants_db.mv.db`
+
 ## 🧪 Tests Unitarios
 
-Los tests unitarios se encuentran en la clase `MutantApplicationTests` y cubren los siguientes casos:  
+Los tests unitarios se encuentran en la clase `MutantApplicationTests` y cubren los siguientes casos:
 
 ### 🚨 Manejo de Errores
 
-- ❌ **Array vacío**: Verifica que se lance una excepción cuando el array de ADN está vacío.
-- ❌ **Array NxM**: Verifica que se lance una excepción cuando el array de ADN no es NxN.
-- ❌ **Array con números como strings**: Verifica que se lance una excepción cuando el array de ADN contiene caracteres inválidos.
-- ❌ **Array nulo**: Verifica que se lance una excepción cuando el array de ADN es null.
-- ❌ **Array de NxN con nulls**: Verifica que se lance una excepción cuando alguna fila del array de ADN es null.
-- ❌ **Array con letras distintas a las propuestas**: Verifica que se lance una excepción cuando el array de ADN contiene caracteres distintos a 'A', 'T', 'C', 'G'.
+-  **Array vacío**: Verifica que se lance una excepción cuando el array de ADN está vacío.
+-  **Array NxM**: Verifica que se lance una excepción cuando el array de ADN no es NxN.
+-  **Array con números como strings**: Verifica que se lance una excepción cuando el array de ADN contiene caracteres inválidos.
+-  **Array nulo**: Verifica que se lance una excepción cuando el array de ADN es null.
+-  **Array de NxN con nulls**: Verifica que se lance una excepción cuando alguna fila del array de ADN es null.
+-  **Array con letras distintas a las propuestas**: Verifica que se lance una excepción cuando el array de ADN contiene caracteres distintos a 'A', 'T', 'C', 'G'.
 
 ### ✅ Casos de Prueba
 
 - 🧬 **Mutante 1**: Verifica que una secuencia de ADN con múltiples secuencias repetitivas sea detectada como mutante.
-- 🧬 **Mutante 2**: Verifica otro caso de secuencia de ADN mutante.
-- 🧬 **Mutante 3**: Verifica un caso extremo donde todas las filas contienen la misma base nitrogenada.
-- 🧬 **No Mutante 1**: Verifica que una secuencia de ADN sin suficientes secuencias repetitivas no sea detectada como mutante.
-- 🧬 **No Mutante 2**: Verifica otro caso de secuencia de ADN no mutante.
-- 🧬 **Mutante 4**: Verifica un caso más complejo de secuencia de ADN mutante.
-- 🧬 **Mutante 5**: Verifica un caso adicional de secuencia de ADN mutante.
+- 🔬 **Mutante 2**: Verifica otro caso de secuencia de ADN mutante.
+- 🧫 **Mutante 3**: Verifica un caso extremo donde todas las filas contienen la misma base nitrogenada.
+- 🧑‍🔬 **No Mutante 1**: Verifica que una secuencia de ADN sin suficientes secuencias repetitivas no sea detectada como mutante.
+- 👨‍🔬 **No Mutante 2**: Verifica otro caso de secuencia de ADN no mutante.
+- 🧑‍🚀 **Mutante 4**: Verifica un caso más complejo de secuencia de ADN mutante.
+- 👩‍🚀 **Mutante 5**: Verifica un caso adicional de secuencia de ADN mutante.
 
 ## 🏃‍♂️ Ejecución de Tests
 
-Para ejecutar los tests unitarios, puedes usar el siguiente comando de Gradle: 
+Para ejecutar los tests unitarios, puedes usar el siguiente comando de Gradle:
 
 ```bash
 ./gradlew test
