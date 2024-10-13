@@ -23,6 +23,14 @@ Se realizan las siguientes validaciones antes de procesar la secuencia:
 
 La API expone dos endpoints principales y está documentada con Swagger.
 
+- **Swagger UI**: [https://mutantes-utn-prog3.onrender.com/swagger-ui.html](https://mutantes-utn-prog3.onrender.com/swagger-ui.html)
+
+## 🌐 API en Render
+
+La aplicación está desplegada en Render. Puedes agregar y quitar secuencias de ADN de mutantes a través de la API en el siguiente enlace:
+
+- **Link de la API**: [https://mutantes-utn-prog3.onrender.com](https://mutantes-utn-prog3.onrender.com)
+
 ### Endpoints Principales
 
 #### Obtener estadísticas de ADN:
