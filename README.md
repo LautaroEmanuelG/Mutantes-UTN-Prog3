@@ -2,6 +2,14 @@
 
 Este proyecto es una aplicación de Spring Boot diseñada para detectar si una secuencia de ADN pertenece a un mutante, basada en la búsqueda de secuencias repetitivas de bases nitrogenadas (A, T, C, G) en una matriz NxN.
 
+## 📊 Diagrama de Secuencia
+
+![Diagrama de Secuencia](./mutant/data/SequenceDiagramMutants.png)
+
+Puedes ver y descargar el diagrama de secuencia desde el siguiente enlace:
+
+[Diagrama de Secuencia en Google Drive](https://drive.google.com/file/d/1d-T-j2mXVB1MqJndX8qWEikkv5ytRS43/view?usp=sharing)
+
 ## 📂 Estructura del Proyecto
 
 - 📄 **MutantApplication.java**: Clase principal que inicia la aplicación.
@@ -19,17 +27,17 @@ Se realizan las siguientes validaciones antes de procesar la secuencia:
 - El array de ADN no puede ser `null`, vacío o de tamaño incorrecto (debe ser NxN).
 - Cada fila del array solo puede contener los caracteres 'A', 'T', 'C', 'G'.
 
-## 📜 API y Documentación
-
-La API expone dos endpoints principales y está documentada con Swagger.
-
-- **Swagger UI**: [https://mutantes-utn-prog3.onrender.com/swagger-ui.html](https://mutantes-utn-prog3.onrender.com/swagger-ui.html)
-
 ## 🌐 API en Render
 
 La aplicación está desplegada en Render. Puedes agregar y quitar secuencias de ADN de mutantes a través de la API en el siguiente enlace:
 
 - **Link de la API**: [https://mutantes-utn-prog3.onrender.com](https://mutantes-utn-prog3.onrender.com)
+
+## 📜 API y Documentación
+
+La API expone dos endpoints principales y está documentada con Swagger.
+
+- **Swagger UI**: [https://mutantes-utn-prog3.onrender.com/swagger-ui.html](https://mutantes-utn-prog3.onrender.com/swagger-ui.html)
 
 ### Endpoints Principales
 
@@ -92,13 +100,13 @@ El proyecto utiliza una base de datos H2 en modo local para almacenar secuencias
 
 La clase MutantApplicationTests cubre los siguientes casos:
 
-### 🚨 Casos de Manejo de Errores:
+#### 🚨 Casos de Manejo de Errores:
 
 - Secuencia de ADN vacía o nula.
 - Tamaño de matriz no NxN.
 - Caracteres no válidos en la secuencia de ADN.
 
-### ✅ Casos de Prueba para ADN Mutante y No Mutante:
+#### ✅ Casos de Prueba para ADN Mutante y No Mutante:
 
 - 🧬 Mutante 1: Detecta una secuencia con múltiples repeticiones.
 - 🔬 Mutante 2: Otro caso de ADN mutante.
